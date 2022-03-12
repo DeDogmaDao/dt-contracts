@@ -3,7 +3,7 @@
 pragma solidity ^0.8.4;
 
 import './ERC721A.sol';
-import '@openzeppelin/contracts/access/Ownable.sol';
+import './Ownable.sol';
 import '@openzeppelin/contracts/utils/Strings.sol';
 import '@openzeppelin/contracts/utils/cryptography/ECDSA.sol';
 import '@openzeppelin/contracts/security/ReentrancyGuard.sol';
@@ -115,7 +115,7 @@ contract NFT is ERC721A, Ownable, ReentrancyGuard {
         string memory notRevealedArtCID_,
         ContactMintConfig memory mintConfig_,
         uint256 upgradeRequestFeeInWei_
-    ) ERC721A('NepoleiaNFT', 'NepoleiaNFT') {
+    ) ERC721A('NepoleiaNFT', 'NepoleiaNFT') Ownable(addresses_.Owner) {
         MaxSupply = maxSupply_;
         STATE = ContractState(false, false, false, false, false, false);
         ADDRESS = addresses_;

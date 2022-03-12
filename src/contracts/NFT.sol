@@ -397,7 +397,7 @@ contract NFT is ERC721A, Ownable, ReentrancyGuard {
     }
 
     // Token BuyBack management functions
-    function buyBackToken(uint16 tokenId) external onlyHuman(tokenId) nonReentrant  {
+    function buyBackToken(uint16 tokenId) external onlyHuman(tokenId) nonReentrant {
         require(_exists(tokenId), 'token does not exist');
         TokenOwnership memory ownership = ownershipOf(tokenId);
         require(msg.sender == ownership.addr, 'only owner of token can buy back token');

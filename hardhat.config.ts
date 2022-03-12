@@ -64,8 +64,8 @@ const config: HardhatUserConfig = {
     pretty: true,
   },
   typechain: {
-    outDir: "src/types",
-    target: "ethers-v5",
+    outDir: 'src/types',
+    target: 'ethers-v5',
   },
 }
 

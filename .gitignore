@@ -14,4 +14,4 @@ src/test/*.js
 
 #other
 .vscode
-venv
+venv/out

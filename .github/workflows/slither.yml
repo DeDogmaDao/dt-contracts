@@ -22,7 +22,7 @@ jobs:
       - name: Set up node
         uses: actions/setup-node@v1
         with:
-          node-version: 14.0.0
+          node-version: 16.8.0
 
       - name: Set up Python 3.8
         uses: actions/setup-python@v2

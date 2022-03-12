@@ -61,6 +61,10 @@ const config: HardhatUserConfig = {
     spacing: 2,
     pretty: true,
   },
+  typechain: {
+    outDir: "src/types",
+    target: "ethers-v5",
+  },
 }
 
 export default config

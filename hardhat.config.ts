@@ -43,6 +43,8 @@ const config: HardhatUserConfig = {
   gasReporter: {
     enabled: process.env.REPORT_GAS !== undefined,
     currency: 'USD',
+    coinmarketcap: process.env.COINMARKET_CAP_API_KEY,
+    gasPriceApi: process.env.GAS_PRICE_API_KEY,
   },
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY,

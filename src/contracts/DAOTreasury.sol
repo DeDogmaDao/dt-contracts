@@ -115,7 +115,7 @@ contract DAOTreasury is UUPSUpgradeable, DTAuthUpgradable, IDAOTreasury {
         address fundReceiver
     ) external virtual isDaoReady {
         uint256 tresuryBalance = getTreasuryBalance();
-        require(tresuryBalance > fundRequestAmount, 'Treasury balance is not enough to fund the proposal');
+        require(tresuryBalance >= fundRequestAmount, 'Treasury balance is not enough to fund the proposal');
         require(votingStartTime < votingEndTime, 'Voting start time should be earlier than voting end time');
 
         Proposal memory proposal = Proposal(

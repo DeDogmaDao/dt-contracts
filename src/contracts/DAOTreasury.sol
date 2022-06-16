@@ -177,7 +177,6 @@ contract DAOTreasury is UUPSUpgradeable, DTAuthUpgradable, IDAOTreasury {
         ethReleasesPlanDescription[releaseId] = 'Market making and bootstrapping';
         releaseId++;
 
-        uint256 month = 3 * 30 * 24 * 60 * 60;
         for (releaseId; releaseId < 4; releaseId++) {
             uint256 releasePercent = 10;
             uint256 releaseDate = START_TIME + (3 * MONTH) + ((releaseId - 1) * MONTH);

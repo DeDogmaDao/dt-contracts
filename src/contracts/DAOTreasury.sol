@@ -13,7 +13,7 @@ import './interfaces/IGameTreasury.sol';
 contract DAOTreasury is UUPSUpgradeable, DTAuthUpgradable, IDAOTreasury {
     uint256 public START_TIME;
     uint8 public DAO_ROLE_ID;
-    uint32 MONTH = 30 * 24 * 60 * 60;
+    uint32 constant MONTH = 30 * 24 * 60 * 60;
 
     address public collectigame;
     address public gameTreasury;

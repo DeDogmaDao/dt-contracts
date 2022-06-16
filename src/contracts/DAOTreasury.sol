@@ -226,7 +226,7 @@ contract DAOTreasury is UUPSUpgradeable, DTAuthUpgradable, IDAOTreasury {
         guaranteedFlorPrice += increaseAmount;
     }
 
-    function releaseFund(uint8 releaseId) external virtual whenSetup {
+    function releaseFund(uint8 releaseId) external virtual hasAuthorized(DAO_ROLE_ID) whenSetup {
         Release storage release = ethReleasesPlan[releaseId];
         require(!release.isReleased, 'Fund has been released');
         require(release.releaseDate <= block.timestamp, 'Release date is not reached');

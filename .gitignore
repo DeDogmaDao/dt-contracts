@@ -21,3 +21,6 @@ venv
 artifacts
 
 .openzeppelin
+
+testScript.ts
+testScript.js

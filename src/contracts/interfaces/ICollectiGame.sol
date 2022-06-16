@@ -39,6 +39,8 @@ interface ICollectiGame {
         uint256 endPrice; // in wei
         uint256 auctionDropPerStep; // in wei
         bool isSold;
+        uint256 purchasedPrice; // in wei
+        address owner;
     }
 
     struct ContractAddresses {

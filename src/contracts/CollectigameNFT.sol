@@ -245,14 +245,24 @@ contract CollectigameNFT is DTERC721A, ICollectiGame, DTOwnable, DTAuth, Reentra
 
         _auctionTransfer(decentralTitan, msg.sender, auction.tokenId);
 
-        _transferEth(decentralTitan, msg.value);
         auctions[day].isSold = true;
+        auctions[day].purchasedPrice = msg.value;
+        auctions[day].owner = msg.sender;
+        _transferEth(decentralTitan, msg.value);
     }
 
     function getAuctionPrice(uint8 day) external view whileAuctionIsActive returns (uint256) {
         require(1 <= day && day <= NUMBER_OF_TOKEN_FOR_AUCTION, 'day is out of range');
         Auction memory auction = auctions[day];
         return _getAuctionPrice(auction);
+    }
+
+    function getAuctionsData() external view returns (Auction[] memory) {
+        Auction[] memory result = new Auction[](NUMBER_OF_TOKEN_FOR_AUCTION);
+        for (uint8 i = 1; i <= NUMBER_OF_TOKEN_FOR_AUCTION; i++) {
+            result[i - 1] = auctions[i];
+        }
+        return result;
     }
 
     function whitelistMinting(
@@ -420,7 +430,9 @@ contract CollectigameNFT is DTERC721A, ICollectiGame, DTOwnable, DTAuth, Reentra
                 configs[i].startPrice,
                 configs[i].endPrice,
                 configs[i].auctionDropPerStep,
-                false
+                false,
+                configs[i].endPrice,
+                decentralTitan
             );
             auctions[i + 1] = _auction;
             isGodToken[i] = true;

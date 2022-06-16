@@ -78,7 +78,7 @@ const config: HardhatUserConfig = {
     workspace: undefined, // Set the workspace to use, will default to the default workspace (latest one used in the dashboard). It is also possible to set it through the ETHERNAL_WORKSPACE env variable
     uploadAst: true, // If set to true, plugin will upload AST, and you'll be able to use the storage feature (longer sync time though)
     disabled: false, // If set to true, the plugin will be disabled, nohting will be synced, ethernal.push won't do anything either
-    resetOnStart: 'remote_hardhat'
+    resetOnStart: 'local hardhat '
   }
 }
 

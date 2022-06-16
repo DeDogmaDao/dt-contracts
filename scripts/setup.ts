@@ -34,7 +34,7 @@ async function deployCollectiGame() {
     console.log("NFT Contract deployed to:", NFTContract.address);
 
     await ethernal.push({
-        name: 'NFT',
+        name: 'CollectigameNFT',
         address: NFTContract.address,
     })
 }

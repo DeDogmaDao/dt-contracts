@@ -92,7 +92,7 @@ contract DAOTreasury is UUPSUpgradeable, DTAuthUpgradable, IDAOTreasury {
         require(collectigameState.initialized == true, 'CollectiGame contract has not initialized yet');
 
         uint256 tresuryBalance = getTreasuryBalance();
-        require(tresuryBalance > guaranteedFlorPrice, 'Treasury balance is not enough to buyback');
+        require(tresuryBalance >= guaranteedFlorPrice, 'Treasury balance is not enough to buyback');
 
         uint256 tax = (guaranteedFlorPrice * buybackTaxRation) / 100;
         bool taxPayingStatus = IGameTreasury(gameTreasury).buybackTax{value: tax}(tax);

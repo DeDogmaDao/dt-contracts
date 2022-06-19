@@ -47,7 +47,7 @@ contract CollectigameNFT is DTERC721A, ICollectiGame, DTOwnable, DTAuth, Reentra
     ContractAddresses private addresses;
     ContractIPFS private ipfs;
 
-    uint64 public constant override MINT_PRICE_IN_WEI = 0.07 * 10**18;
+    uint64 public constant override MINT_PRICE_IN_WEI = 70000000000000000;
     uint16 public constant MAX_MINT_PER_ADDRESS = 3;
     uint256 public immutable AUCTION_START_TIME; // epoch time
     uint8 public constant override NUMBER_OF_TOKEN_FOR_AUCTION = 10;

@@ -64,7 +64,7 @@ contract CollectigameNFT is DTERC721A, ICollectiGame, DTOwnable, DTAuth, Reentra
     mapping(uint16 => string) private _upgradedTokenCIDs;
     mapping(uint16 => bool) public isGodToken;
     mapping(uint8 => Auction) public auctions;
-    mapping(uint256 => bool) public upgradeRequestFeeIsPaid;
+    mapping(uint16 => bool) public upgradeRequestFeeIsPaid;
 
     // Events
     event UpgradeRequestPayment(uint16 tokenId, uint256 value);

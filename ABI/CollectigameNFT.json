@@ -29,7 +29,7 @@
   "function DECENTRAL_TITAN_ROLE_ID() view returns (uint8)",
   "function MAX_MINT_PER_ADDRESS() view returns (uint16)",
   "function MAX_SUPPLY() view returns (uint16)",
-  "function MINT_PRICE_IN_WEI() view returns (uint256)",
+  "function MINT_PRICE_IN_WEI() view returns (uint64)",
   "function NUMBER_OF_TOKEN_FOR_AUCTION() view returns (uint8)",
   "function PLATFORM_MULTISIG_ROLE_ID() view returns (uint8)",
   "function ROYALTY_FEE_PERCENT() view returns (uint8)",

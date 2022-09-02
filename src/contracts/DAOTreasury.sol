@@ -14,6 +14,7 @@ contract DAOTreasury is UUPSUpgradeable, DTAuthUpgradable, IDAOTreasury {
     uint256 public START_TIME;
     uint8 public DAO_ROLE_ID;
 
+    bool private isSetup;
     address public collectigame;
     address public gameTreasury;
     address public teamMultisig;
@@ -21,7 +22,6 @@ contract DAOTreasury is UUPSUpgradeable, DTAuthUpgradable, IDAOTreasury {
     uint256 public buybackTaxRation;
     uint256 public collectigameSupply;
     uint256 public daoProposalFundingStartTime;
-    bool private isSetup;
 
     mapping(uint8 => Release) public ethReleasesPlan;
     mapping(uint8 => string) public ethReleasesPlanDescription;
@@ -115,7 +115,7 @@ contract DAOTreasury is UUPSUpgradeable, DTAuthUpgradable, IDAOTreasury {
         address fundReceiver
     ) external virtual isDaoReady {
         uint256 tresuryBalance = getTreasuryBalance();
-        require(tresuryBalance > fundRequestAmount, 'Treasury balance is not enough to fund the proposal');
+        require(tresuryBalance >= fundRequestAmount, 'Treasury balance is not enough to fund the proposal');
         require(votingStartTime < votingEndTime, 'Voting start time should be earlier than voting end time');
 
         Proposal memory proposal = Proposal(

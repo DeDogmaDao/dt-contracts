@@ -55,7 +55,7 @@ interface ICollectiGame {
 
     function getAddresses() external view returns (ContractAddresses memory);
 
-    function MINT_PRICE_IN_WEI() external view returns (uint256);
+    function MINT_PRICE_IN_WEI() external view returns (uint64);
 
     function NUMBER_OF_TOKEN_FOR_AUCTION() external view returns (uint8);
 }

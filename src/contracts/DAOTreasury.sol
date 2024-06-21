@@ -215,6 +215,7 @@ contract DAOTreasury is UUPSUpgradeable, DTAuthUpgradable, IDAOTreasury {
     }
 
     function setBuybackTaxRatio(uint256 buybackTaxRation_) external virtual hasAuthorized(DAO_ROLE_ID) {
+        require(0 <= buybackTaxRation_ && buybackTaxRation_ <= 65, 'Input is not within the acceptable range');
         buybackTaxRation = buybackTaxRation_;
     }
 

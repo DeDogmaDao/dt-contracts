@@ -13,6 +13,7 @@ import './interfaces/IGameTreasury.sol';
 contract DAOTreasury is UUPSUpgradeable, DTAuthUpgradable, IDAOTreasury {
     uint256 public START_TIME;
     uint8 public DAO_ROLE_ID;
+    uint32 constant MONTH = 2592000;
 
     bool private isSetup;
     address public collectigame;
@@ -79,8 +80,7 @@ contract DAOTreasury is UUPSUpgradeable, DTAuthUpgradable, IDAOTreasury {
 
         buybackTaxRation = buybackTaxRation_;
 
-        uint256 month = 30 * 24 * 60 * 60;
-        daoProposalFundingStartTime = START_TIME + (8 * month);
+        daoProposalFundingStartTime = START_TIME + (8 * MONTH);
     }
 
     function getTreasuryBalance() public view virtual returns (uint256) {
@@ -177,10 +177,9 @@ contract DAOTreasury is UUPSUpgradeable, DTAuthUpgradable, IDAOTreasury {
         ethReleasesPlanDescription[releaseId] = 'Market making and bootstrapping';
         releaseId++;
 
-        uint256 month = 3 * 30 * 24 * 60 * 60;
         for (releaseId; releaseId < 4; releaseId++) {
             uint256 releasePercent = 10;
-            uint256 releaseDate = START_TIME + (3 * month) + ((releaseId - 1) * month);
+            uint256 releaseDate = START_TIME + (3 * MONTH) + ((releaseId - 1) * MONTH);
 
             Release memory release = Release(releasePercent, releaseDate, teamMultisig, false);
             ethReleasesPlan[releaseId] = release;
@@ -189,7 +188,7 @@ contract DAOTreasury is UUPSUpgradeable, DTAuthUpgradable, IDAOTreasury {
 
         for (releaseId; releaseId < 7; releaseId++) {
             uint256 releasePercent = 10;
-            uint256 releaseDate = START_TIME + (3 * month) + ((releaseId - 1) * month);
+            uint256 releaseDate = START_TIME + (3 * MONTH) + ((releaseId - 1) * MONTH);
 
             Release memory release = Release(releasePercent, releaseDate, roles[DAO_ROLE_ID].addr, false);
             ethReleasesPlan[releaseId] = release;

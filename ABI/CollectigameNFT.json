@@ -84,7 +84,7 @@
   "function transferOwnership(address)",
   "function updateCID(string,string)",
   "function upgradeRequestFeeInWei() view returns (uint256)",
-  "function upgradeRequestFeeIsPaid(uint256) view returns (bool)",
+  "function upgradeRequestFeeIsPaid(uint16) view returns (bool)",
   "function upgradeToken(string,uint16,bool)",
   "function upgradeTokenRequestFee(uint16) payable",
   "function whitelistMinting(uint8,uint8,uint8,bytes) payable"
